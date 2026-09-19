@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Umbrella Verification — Military-grade Discord protection</title>
+  <meta name="description" content="Umbrella Verification is a Discord verification bot with military-grade protection: unique IP binding, VPN blocking, and one-click server panels." />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 3l11 6v8c0 7.2-4.6 12.4-11 14C9.6 29.4 5 24.2 5 17V9l11-6z" stroke="#6ee7a8" stroke-width="1.6"/>
+          <path d="M7 14c3-5 6.2-7 9-7s6 2 9 7" stroke="#6ee7a8" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M16 7v16" stroke="#6ee7a8" stroke-width="1.6"/>
+        </svg>
+        Umbrella
+      </a>
+      <nav class="nav-links">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#protocol">Protocol</a>
+        <a href="#commands">Commands</a>
+        <a class="btn" id="nav-invite" href="#deploy">Add to Discord</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="kicker">Verification node · classified posture</div>
+          <h1>Military-grade protection for Discord.</h1>
+          <p class="lede">
+            Umbrella Verification is a verification bot that binds one Discord identity to one network.
+            VPNs are refused. Alternate accounts on the same IP are refused. The rest get through.
+          </p>
+          <div class="hero-actions">
+            <a class="btn solid" id="hero-invite" href="#deploy">Invite the bot</a>
+            <a class="btn" href="#protocol">See the protocol</a>
+          </div>
+          <div class="meta-row">
+            <div><b>IP LOCK</b><span>One address, one account</span></div>
+            <div><b>VPN DENY</b><span>Proxy / Tor / hosting blocked</span></div>
+            <div><b>GLOBAL</b><span>Binding is not per-server</span></div>
+          </div>
+        </div>
+        <aside class="terminal" aria-hidden="true">
+          <div class="terminal-top">
+            <span>GATE // UMBRELLA.NODE</span>
+            <span class="dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="scan">
+            <div class="dim">$ umbrella scan --member 1840****</div>
+            <div>session token issued · ttl 15m</div>
+            <div>source address captured</div>
+            <div>vpn/proxy fingerprint … <span class="ok">CLEAN</span></div>
+            <div>identity collision check … <span class="ok">UNIQUE</span></div>
+            <div>role grant … <span class="ok">VERIFIED</span></div>
+            <div class="dim">log written → #umbrella-logs</div>
+            <div class="bad">alt on shared ip → DENY</div>
+          </div>
+          <div class="radar"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="wrap">
+        <div class="kicker">Capability set</div>
+        <h2 class="section-title">Built like a checkpoint, not a captcha.</h2>
+        <p class="section-sub">Staff drop a panel. Members open a private link. Umbrella decides. The server never has to guess.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="tag">01 · Binding</div>
+            <h3>Global IP lock</h3>
+            <p>If an IP is already verified to another Discord account, the second identity is denied. The check is global — the originating server does not matter.</p>
+          </article>
+          <article class="card">
+            <div class="tag">02 · Perimeter</div>
+            <h3>VPN &amp; proxy denial</h3>
+            <p>Commercial VPNs, datacenter proxies, Tor, and high-risk ranges are rejected before a role is ever touched.</p>
+          </article>
+          <article class="card">
+            <div class="tag">03 · Control</div>
+            <h3>Staff-owned logs</h3>
+            <p>/setlogs points Umbrella at a channel. Every pass, VPN block, and collision is written there with a masked address.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="protocol">
+      <div class="wrap">
+        <div class="kicker">Protocol</div>
+        <h2 class="section-title">Four steps. No shared links.</h2>
+        <p class="section-sub">Every member receives a URL minted only for them. Reusing someone else’s link does nothing useful — the token is bound to that Discord user.</p>
+        <div class="steps">
+          <div class="step">
+            <em>01</em>
+            <h3>Panel</h3>
+            <p>An admin runs /panel. Umbrella posts the verification message and button.</p>
+          </div>
+          <div class="step">
+            <em>02</em>
+            <h3>Issue</h3>
+            <p>The member clicks Verify and receives a personal, expiring URL.</p>
+          </div>
+          <div class="step">
+            <em>03</em>
+            <h3>Scan</h3>
+            <p>The node reads the IP, rejects VPNs, and searches the identity database.</p>
+          </div>
+          <div class="step">
+            <em>04</em>
+            <h3>Grant</h3>
+            <p>Same account on a known IP passes. A foreign account on that IP is refused. Role applied via /setverifyrole.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="commands">
+      <div class="wrap">
+        <div class="kicker">Command surface</div>
+        <h2 class="section-title">Three commands. That is the kit.</h2>
+        <table class="cmd-table">
+          <thead>
+            <tr><th>Command</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/panel</code></td>
+              <td>Sends the verification embed and button in the current channel.</td>
+            </tr>
+            <tr>
+              <td><code>/setlogs</code></td>
+              <td>Sets the text channel that receives pass / deny logs.</td>
+            </tr>
+            <tr>
+              <td><code>/setverifyrole</code></td>
+              <td>Sets the role granted when a member clears the gate.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="deploy">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <div class="kicker">Deploy</div>
+            <h2>Put the gate on your server.</h2>
+            <p class="section-sub" style="margin-bottom:0">Invite Umbrella, set the role, set the log channel, drop the panel. The site, the bot, and the gate all run on one Railway service.</p>
+          </div>
+          <a class="btn solid" id="cta-invite" href="#">Authorize bot</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div>Umbrella Verification · military-grade Discord protection</div>
+    <div>IP addresses are processed only to bind identities and block anonymizers.</div>
+  </footer>
+
+  <script src="./config.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
